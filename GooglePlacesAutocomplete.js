@@ -429,13 +429,13 @@ export default class GooglePlacesAutocomplete extends Component {
         // your key must be allowed to use Google Maps Geocoding API
         url = 'https://maps.googleapis.com/maps/api/geocode/json?' + Qs.stringify({
           latlng: latitude + ',' + longitude,
-          key: this.props.query.key,
+          ...this.props.query,
           ...this.props.GoogleReverseGeocodingQuery,
         });
       } else {
         url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?' + Qs.stringify({
           location: latitude + ',' + longitude,
-          key: this.props.query.key,
+          ...this.props.query,
           ...this.props.GooglePlacesSearchQuery,
         });
       }
