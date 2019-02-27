@@ -279,10 +279,12 @@ export default class GooglePlacesAutocomplete extends Component {
         }
       };
 
+      const { query } = this.props;
+      console.log('QUERY NOW =', query);
+
       request.open('GET', 'https://maps.googleapis.com/maps/api/place/details/json?' + Qs.stringify({
-        key: this.props.query.key,
         placeid: rowData.place_id,
-        language: this.props.query.language,
+        ...query
       }));
 
       if (this.props.query.origin !== null) {
