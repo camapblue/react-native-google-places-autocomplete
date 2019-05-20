@@ -705,33 +705,34 @@ export default class GooglePlacesAutocomplete extends Component {
         style={[this.props.suppressDefaultStyles ? {} : defaultStyles.container, this.props.styles.container]}
         pointerEvents="box-none"
       >
-        {!this.props.textInputHide &&
-          <View
-            style={[this.props.suppressDefaultStyles ? {} : defaultStyles.textInputContainer, this.props.styles.textInputContainer]}
-          >
-            {this._renderLeftButton()}
-            <TextInput
-              ref="textInput"
-              editable={this.props.editable}
-              returnKeyType={this.props.returnKeyType}
-              autoFocus={this.props.autoFocus}
-              style={[this.props.suppressDefaultStyles ? {} : defaultStyles.textInput, this.props.styles.textInput]}
-              value={this.state.text}
-              placeholder={this.props.placeholder}
-              onSubmitEditing={this.props.onSubmitEditing}
-              placeholderTextColor={this.props.placeholderTextColor}
-              onFocus={onFocus ? () => { this._onFocus(); onFocus() } : this._onFocus}
-              onBlur={this._onBlur}
-              underlineColorAndroid={this.props.underlineColorAndroid}
-              clearButtonMode={
-                clearButtonMode ? clearButtonMode : "while-editing"
-              }
-              {...userProps}
-              onChangeText={this._handleChangeText}
-            />
-            {this._renderRightButton()}
-          </View>
-        }
+        {/* {!this.props.textInputHide &&
+         
+        } */}
+        <View
+          style={[this.props.suppressDefaultStyles ? {} : defaultStyles.textInputContainer, this.props.styles.textInputContainer]}
+        >
+          {/* {this._renderLeftButton()} */}
+          <TextInput
+            ref="textInput"
+            editable={this.props.editable}
+            returnKeyType={this.props.returnKeyType}
+            autoFocus={this.props.autoFocus}
+            style={[this.props.suppressDefaultStyles ? {} : defaultStyles.textInput, this.props.styles.textInput]}
+            value={this.state.text}
+            placeholder={this.props.placeholder}
+            onSubmitEditing={this.props.onSubmitEditing}
+            placeholderTextColor={this.props.placeholderTextColor}
+            onFocus={onFocus ? () => { this._onFocus(); onFocus() } : this._onFocus}
+            onBlur={this._onBlur}
+            underlineColorAndroid={this.props.underlineColorAndroid}
+            clearButtonMode={
+              clearButtonMode ? clearButtonMode : "while-editing"
+            }
+            {...userProps}
+            onChangeText={this._handleChangeText}
+          />
+          {this._renderRightButton()}
+        </View>
         {this._getFlatList()}
         {this.props.children}
       </View>
@@ -781,7 +782,7 @@ GooglePlacesAutocomplete.propTypes = {
   numberOfLines: PropTypes.number,
   onSubmitEditing: PropTypes.func,
   editable: PropTypes.bool,
-  iconClear:PropTypes.string
+  iconClear: PropTypes.string
 }
 GooglePlacesAutocomplete.defaultProps = {
   placeholder: 'Search',
@@ -828,7 +829,7 @@ GooglePlacesAutocomplete.defaultProps = {
   numberOfLines: 1,
   onSubmitEditing: () => { },
   editable: true,
-  iconClear:''
+  iconClear: ''
 }
 
 // this function is still present in the library to be retrocompatible with version < 1.1.0
