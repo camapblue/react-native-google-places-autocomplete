@@ -84,7 +84,7 @@ export default class GooglePlacesAutocomplete extends Component {
   }
 
   getInitialState = () => ({
-    text: this.props.getDefaultValue,
+    text: this.props.getDefaultValue(),
     dataSource: this.buildRowsFromResults([]),
     listViewDisplayed: this.props.listViewDisplayed === 'auto' ? false : this.props.listViewDisplayed,
   })
@@ -739,7 +739,7 @@ GooglePlacesAutocomplete.propTypes = {
   fetchDetails: PropTypes.bool,
   autoFocus: PropTypes.bool,
   autoFillOnNotFound: PropTypes.bool,
-  getDefaultValue: PropTypes.string,
+  getDefaultValue: PropTypes.func,
   timeout: PropTypes.number,
   onTimeout: PropTypes.func,
   query: PropTypes.object,
@@ -784,7 +784,7 @@ GooglePlacesAutocomplete.defaultProps = {
   autoFocus: false,
   autoFillOnNotFound: false,
   keyboardShouldPersistTaps: 'always',
-  getDefaultValue: '',
+  getDefaultValue: () => '',
   timeout: 20000,
   onTimeout: () => console.warn('google places autocomplete: request timeout'),
   query: {
