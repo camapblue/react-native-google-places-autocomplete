@@ -665,11 +665,14 @@ export default class GooglePlacesAutocomplete extends Component {
     this.setState({ text: '' })
   }
   _renderRightButton = () => {
-    return (
-      <TouchableOpacity style={{ width: 18, height: 18 }} onPress={resetText} >
-        <Image style={{ width: 18, height: 18 }} source={this.props.iconClear} />
-      </TouchableOpacity>
-    )
+       if (this.props.renderRightButton) {
+        return (
+          <TouchableOpacity style={{ width: 18, height: 18 }} onPress={resetText} >
+            <Image style={{ width: 18, height: 18 }} source={this.props.iconClear} />
+          </TouchableOpacity>
+        )
+        }
+  
   }
 
   _getFlatList = () => {
