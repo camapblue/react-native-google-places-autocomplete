@@ -667,9 +667,8 @@ export default class GooglePlacesAutocomplete extends Component {
   _renderRightButton = () => {
        if (this.props.renderRightButton) {
         return (
-          <TouchableOpacity style={{ width: 18, height: 18 }} onPress={resetText} >
-            {/* <Image style={{ width: 18, height: 18 }} source={this.props.iconClear} /> */}
-            <Text>abcs</Text>
+          <TouchableOpacity style={{ width: 18, height: 18 }} onPress={this._resetText} >
+          {this.props.renderRightButton()}
           </TouchableOpacity>
         )
         }
