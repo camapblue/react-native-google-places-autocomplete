@@ -655,24 +655,15 @@ export default class GooglePlacesAutocomplete extends Component {
     }
   }
 
-  // _renderRightButton = () => {
-  //   if (this.props.renderRightButton) {
-  //     return this.props.renderRightButton()
-  //   }
-  // }
-
   _resetText = () => {
     this.setState({ text: '' })
   }
   _renderRightButton = () => {
-    // if (this.props.renderRightButton) {
       return (
         <TouchableOpacity style={{ width: 18, height: 18 }} onPress={this._resetText} >
           <Image style={{ width: 18, height: 18 }} source={require('./images/powered_by_google_on_white.png')} />
         </TouchableOpacity>
       )
-    // }
-
   }
 
   _getFlatList = () => {
