@@ -659,11 +659,11 @@ export default class GooglePlacesAutocomplete extends Component {
     this.setState({ text: '' })
   }
   _renderRightButton = () => {
-      return (
-        <TouchableOpacity style={{ width: 18, height: 18 }} onPress={()=>this.setState({ text: '' })} >
-          <Image style={{ width: 18, height: 18 }} source={require('./images/ico-clear.png')} />
-        </TouchableOpacity>
-      )
+    return (
+      <TouchableOpacity style={{ width: 18, height: 18 }} onPress={() => this.setState({ text: '' })} >
+        <Image style={{ width: 18, height: 18 }} source={require('./images/ico-clear.png')} />
+      </TouchableOpacity>
+    )
   }
 
   _getFlatList = () => {
@@ -723,7 +723,10 @@ export default class GooglePlacesAutocomplete extends Component {
               {...userProps}
               onChangeText={this._handleChangeText}
             />
-            {this._renderRightButton()}
+            <TouchableOpacity style={{ width: 18, height: 18 }} onPress={() => this.setState({ text: '' })} >
+              <Image style={{ width: 18, height: 18 }} source={require('./images/ico-clear.png')} />
+            </TouchableOpacity>
+            {/* {this._renderRightButton()} */}
           </View>
         }
 
