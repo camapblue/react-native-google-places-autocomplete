@@ -665,14 +665,14 @@ export default class GooglePlacesAutocomplete extends Component {
     this.setState({ text: '' })
   }
   _renderRightButton = () => {
-       if (this.props.renderRightButton) {
-        return (
-          <TouchableOpacity style={{ width: 18, height: 18 }} onPress={this._resetText} >
-          {this.props.renderRightButton()}
-          </TouchableOpacity>
-        )
-        }
-  
+    // if (this.props.renderRightButton) {
+      return (
+        <TouchableOpacity style={{ width: 18, height: 18 }} onPress={this._resetText} >
+          <Image style={{ width: 18, height: 18 }} source={require('./images/powered_by_google_on_white.png')} />
+        </TouchableOpacity>
+      )
+    // }
+
   }
 
   _getFlatList = () => {
@@ -708,34 +708,34 @@ export default class GooglePlacesAutocomplete extends Component {
         style={[this.props.suppressDefaultStyles ? {} : defaultStyles.container, this.props.styles.container]}
         pointerEvents="box-none"
       >
-        {/* {!this.props.textInputHide &&
-         
-        } */}
-        <View
-          style={[this.props.suppressDefaultStyles ? {} : defaultStyles.textInputContainer, this.props.styles.textInputContainer]}
-        >
-          {/* {this._renderLeftButton()} */}
-          <TextInput
-            ref="textInput"
-            editable={this.props.editable}
-            returnKeyType={this.props.returnKeyType}
-            autoFocus={this.props.autoFocus}
-            style={[this.props.suppressDefaultStyles ? {} : defaultStyles.textInput, this.props.styles.textInput]}
-            value={this.state.text}
-            placeholder={this.props.placeholder}
-            onSubmitEditing={this.props.onSubmitEditing}
-            placeholderTextColor={this.props.placeholderTextColor}
-            onFocus={onFocus ? () => { this._onFocus(); onFocus() } : this._onFocus}
-            onBlur={this._onBlur}
-            underlineColorAndroid={this.props.underlineColorAndroid}
-            clearButtonMode={
-              clearButtonMode ? clearButtonMode : "while-editing"
-            }
-            {...userProps}
-            onChangeText={this._handleChangeText}
-          />
-          {this._renderRightButton()}
-        </View>
+        {!this.props.textInputHide &&
+          <View
+            style={[this.props.suppressDefaultStyles ? {} : defaultStyles.textInputContainer, this.props.styles.textInputContainer]}
+          >
+            {this._renderLeftButton()}
+            <TextInput
+              ref="textInput"
+              editable={this.props.editable}
+              returnKeyType={this.props.returnKeyType}
+              autoFocus={this.props.autoFocus}
+              style={[this.props.suppressDefaultStyles ? {} : defaultStyles.textInput, this.props.styles.textInput]}
+              value={this.state.text}
+              placeholder={this.props.placeholder}
+              onSubmitEditing={this.props.onSubmitEditing}
+              placeholderTextColor={this.props.placeholderTextColor}
+              onFocus={onFocus ? () => { this._onFocus(); onFocus() } : this._onFocus}
+              onBlur={this._onBlur}
+              underlineColorAndroid={this.props.underlineColorAndroid}
+              clearButtonMode={
+                clearButtonMode ? clearButtonMode : "while-editing"
+              }
+              {...userProps}
+              onChangeText={this._handleChangeText}
+            />
+            {this._renderRightButton()}
+          </View>
+        }
+
         {this._getFlatList()}
         {this.props.children}
       </View>
